@@ -20,7 +20,7 @@ def get_arguments():
 
 def process_packet(packet):
     scapy_packet = scapy.IP(packet.get_payload())
-    if scapy_packet.haslayer(scapy.RAW):
+    if scapy_packet.haslayer(scapy.Raw):
         if scapy_packet[scapy.TCP].dport == 80:
             if options.file_type in scapy_packet[scapy.RAW].load:
                 ack_list.append(scapy_packet[scapy.TCP].ack)
